@@ -14,4 +14,11 @@ public class Homepage extends Baseclass{
 		Landingpage lp= new Landingpage(driver);
 		lp.Login().click();
 	}
+	@Test
+	public void uhbimimumhi() {
+		
+		driver.get("http://www.qaclickacademy.com/");
+		Landingpage lp= new Landingpage(driver);
+		lp.Login().click();
+	}
 }
