@@ -1,9 +1,13 @@
 package com.academy;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,17 +16,20 @@ import org.testng.annotations.Test;
 public class Baseclass {
 
 	
-   public WebDriver driver;
+  
+public static WebDriver driver;
    
-   String driverpath = "C:\\webdriver\\chromedriver.exe";
+  // String driverpath = "C:\\webdriver\\chromedriver.exe";
+   
+   public Properties prop;
    
    @Test
    
-   public void Login() throws IOException {
+   public WebDriver initializeDriver () throws IOException {
 	   
-	   Properties prop = new Properties();
+	    prop = new Properties();
 	   
-	   FileInputStream fis = new FileInputStream("C:\\apps\\usbank\\src\\main\\java\\com\\academy\\data.properties");
+	   FileInputStream fis = new FileInputStream("C:\\apps\\billing\\src\\main\\java\\com\\academy\\data.properties");
 	   
 	   prop.load(fis);
 	   
@@ -46,6 +53,17 @@ public class Baseclass {
 	}
 	 System.out.println(prop.getProperty("Url"));
 	 driver.get("http://www.qaclickacademy.com/");
-   }
 	
+   return driver;
 }
+   public void getScreenshot(String result) throws IOException {
+	   
+	File src  =   ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	
+    FileUtils.copyFile(src, new File("C://Users//screenshot.png"));
+    
+    
+   }
+
+}
+
