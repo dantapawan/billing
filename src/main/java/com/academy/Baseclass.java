@@ -51,7 +51,7 @@ public static WebDriver driver;
 		
 		//driver=new IEdriver();
 	}
-	 System.out.println(prop.getProperty("Url"));
+	// System.out.println(prop.getProperty("Url"));
 	 driver.get("http://www.qaclickacademy.com/");
 	
    return driver;

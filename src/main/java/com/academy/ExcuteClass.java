@@ -7,7 +7,7 @@ public class ExcuteClass {
     ChildClass cc = new ChildClass();
     
     //cc.insertElements();
-    cc.displayElements();
+    //cc.displayElements();
 	}
 
 }
